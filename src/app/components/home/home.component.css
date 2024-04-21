@@ -1,0 +1,45 @@
+.carousel-item {
+    max-height: 15rem;
+  }
+  
+.carousel-item img {
+      object-fit:cover;
+      height: 15rem;
+  }
+
+.top-categories{
+    font-size: smaller !important;
+}
+
+.top-category .svg{
+    background-color: #f3f0ffcc;
+}
+
+.top-category img{
+    max-height: 3rem;
+}
+
+.carousel-services .carousel-item{
+    max-height: fit-content;
+} 
+
+.card{
+    height: 100%;
+}
+
+.card-slider{
+    overflow: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.card-slider::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.card-slider .card{
+    min-width: 9rem;
+    margin-right: 2rem;
+}
+.card .svg{
+    max-height: 2rem;
+}
