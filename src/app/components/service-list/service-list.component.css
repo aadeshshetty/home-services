@@ -1,0 +1,7 @@
+.service{
+    margin-bottom: 3rem;
+}
+.service img{
+    object-fit:cover;
+    max-height: 10rem;
+}

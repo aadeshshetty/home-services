@@ -72,25 +72,25 @@
     <strong class="fs-5">Top Categories</strong><span>view all</span>
   </p>
   <div class="top-categories row text-center mb-4">
-    <div class="top-category col-3">
+    <div (click)="navigateToServices('Carpentry')" class="top-category col-3">
       <div class="svg w-100 p-2 rounded-3">
         <img src="../../../assets/images/FrameCarpenter.png" class="img-fluid" />
       </div>
-      Carpenter
+      Carpentry
     </div>
-    <div class="top-category col-3">
+    <div (click)="navigateToServices('Plumbing')" class="top-category col-3">
       <div class="svg w-100 p-2 rounded-3">
         <img src="../../../assets/images/FrameCleaner.png" class="img-fluid" />
       </div>
-      Plumber
+      Plumbing
     </div>
-    <div class="top-category col-3">
+    <div (click)="navigateToServices('Cleaning')" class="top-category col-3">
       <div class="svg w-100 p-2 rounded-3">
         <img src="../../../assets/images/FrameCleaner.png" class="img-fluid" />
       </div>
-      Cleaner
+      Cleaning
     </div>
-    <div class="top-category col-3">
+    <div (click)="navigateToServices('Applaince Repair')" class="top-category col-3">
       <div class="svg w-100 p-2 rounded-3">
         <img src="../../../assets/images/FrameElectrician.png" class="img-fluid" />
       </div>
@@ -110,11 +110,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Home cleaning package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
               <div class="card">
@@ -125,11 +125,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Applaince servcie package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
               <div class="card">
@@ -140,11 +140,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Bathroom cleaning package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
               <div class="card">
@@ -155,11 +155,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Home Sanitizing Package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
               <div class="card">
@@ -170,11 +170,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Pest Control Package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
               <div class="card">
@@ -185,11 +185,11 @@
                       src="../../../assets/images/worker-red.svg"
                     />
                   </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Cleaning package</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">Outdoor cleaning package</h6>
                   <p class="card-text">2000/-</p>
                 </div>
                 <div class="card-footer">
-                  <a href="#">See More</a>
+                  <a (click)="addToCart('service')">Add to cart</a>
                 </div>
               </div>
       </div>

@@ -37,8 +37,9 @@
 }
 
 .card-slider .card{
-    min-width: 9rem;
+    min-width: 8rem;
     margin-right: 2rem;
+    height: inherit;
 }
 .card .svg{
     max-height: 2rem;

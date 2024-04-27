@@ -1,0 +1,19 @@
+<div class="cart-container h-100">
+    <h3 class="text-center">My Cart ({{cartList.length}})</h3>
+    <div class="empty-cart text-center h-100 d-flex align-items-center justify-content-center" *ngIf="cartList.length===0"><h3>Please Add Services To Cart</h3></div>
+    <div class="cart-item" *ngFor="let item of cartList">
+        <div class="card item mb-2">
+            <div class="card-header d-flex justify-content-between">
+                <span><strong>{{item.servcieName}}</strong></span>
+            </div>
+            <div class="card-body">
+                <div class="cost">
+                    &#8377; {{item.cost}} /-
+                </div>
+                <div class="workers">
+                    {{item.noOfWorkers}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
