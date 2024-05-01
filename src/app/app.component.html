@@ -1,4 +1,6 @@
 <div class="container w-100 h-100 d-inline-flex flex-column">
+<app-user-permission-modal *ngIf="showPermissionModal" (permissionGranted)="onPermissionResponse($event)"></app-user-permission-modal>
+  <app-pincode-modal *ngIf="showPincodeModal"></app-pincode-modal>
   <app-header></app-header>
   <div class="content p-2">
   <router-outlet></router-outlet>

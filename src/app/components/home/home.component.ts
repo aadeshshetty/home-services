@@ -9,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HomeComponent {
   constructor(private cartService: CartService, private router: Router){}
-
+  
   addToCart(servcie:any){
     const serv = {
       servcieName: 'Bathroom Cleaning Package',

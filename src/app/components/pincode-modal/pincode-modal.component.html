@@ -1,0 +1,20 @@
+<div class="modal d-flex justify-content-center align-items-center" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pincode</h5>
+        </div>
+        <div class="modal-body">
+          <p class="d-flex align-items-center justify-content-center "><mat-icon class="me-2">info</mat-icon>This website uses location for providing services</p>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Pincode</label>
+            <input type="number" class="form-control" [(ngModel)] = "pincode" id="exampleFormControlInput1" placeholder="100100">
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-between px-4">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()">Cancel</button>
+          <button type="button" class="btn btn-dark" (click)="updatePincode()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
