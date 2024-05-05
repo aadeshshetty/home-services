@@ -12,8 +12,11 @@
     <div class="cart me-3 pe-auto">
     <mat-icon (click)="navigateToCart()">shopping_cart</mat-icon>
     </div>
-    <div class="account">
+    <div *ngIf="isLoggedIn" class="account">
         <mat-icon>account_circle</mat-icon>
+    </div>
+    <div *ngIf="!isLoggedIn" (click)="login()" class="account">
+        Login
     </div>
 </div>
 </div>

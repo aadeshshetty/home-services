@@ -1,3 +1,7 @@
 .address{
     font-size: smaller;
 }
+
+.header-container{
+    border-bottom: 0.1px solid #ccc;
+}

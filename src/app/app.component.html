@@ -1,4 +1,4 @@
-<div class="container w-100 h-100 d-inline-flex flex-column">
+<ngx-ui-loader [fgsColor]="'black'" [fgsType]="'three-strings'" [pbColor]="'black'"></ngx-ui-loader>
 <app-user-permission-modal *ngIf="showPermissionModal" (permissionGranted)="onPermissionResponse($event)"></app-user-permission-modal>
   <app-pincode-modal *ngIf="showPincodeModal"></app-pincode-modal>
   <app-header></app-header>
@@ -6,4 +6,3 @@
   <router-outlet></router-outlet>
 </div>
   <app-footer></app-footer>
-</div>

@@ -1,0 +1,13 @@
+<div class="card-container my-5 w-100 d-flex justify-content-center">
+    <div class="card w-100">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h3 class="card-title">Verify OTP</h3>
+            <div class="card-text">
+                <div class="my-5">
+                    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="config"></ng-otp-input>
+                  </div>
+                <button type="button" class="btn btn-dark w-100" (click)="verifyOTP()">Verify OTP</button>
+            </div>
+        </div>
+    </div>
+</div>

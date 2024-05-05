@@ -13,6 +13,12 @@ import { UserPermissionModalComponent } from './components/user-permission-modal
 import { HttpClientModule } from '@angular/common/http';
 import { PincodeModalComponent } from './components/pincode-modal/pincode-modal.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
+import { VerifyOtpComponent } from './components/verify-otp/verify-otp.component';
+import { NgOtpInputModule } from 'ng-otp-input';
+import { SetPasswordComponent } from './components/set-password/set-password.component';
+import { LoginComponent } from './components/login/login.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -23,14 +29,21 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     ServiceListComponent,
     UserPermissionModalComponent,
-    PincodeModalComponent
+    PincodeModalComponent,
+    RegisterComponent,
+    VerifyOtpComponent,
+    SetPasswordComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgOtpInputModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({showForeground:true})
   ],
   providers: [],
   bootstrap: [AppComponent]
