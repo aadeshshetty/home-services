@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiService {
-  url = 'https://home-services-api.onrender.com/'
+  url = 'https://home-services-api.onrender.com'
   constructor(private http: HttpClient) { }
 
   getLocation(){
