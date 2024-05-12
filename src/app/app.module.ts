@@ -19,6 +19,8 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { SetPasswordComponent } from './components/set-password/set-password.component';
 import { LoginComponent } from './components/login/login.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     FormsModule,
     NgOtpInputModule,
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({showForeground:true})
+    NgxUiLoaderHttpModule.forRoot({showForeground:true}),
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

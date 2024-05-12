@@ -3,16 +3,16 @@
         <mat-icon>near_me</mat-icon><span *ngIf="city.length>0 || pincode.length>0" class="d-flex ms-1 address flex-column"
             (click)="showPincodePopup()">
             <span>{{city}}</span><span class="d-flex align-items-center justify-content-center">{{pincode}} <mat-icon>keyboard_arrow_down</mat-icon></span></span>
-            <span *ngIf="city.length===0 && pincode.length===0" (click)="showPopUp()"> Get Location</span>
+            <span *ngIf="city.length===0 && pincode.length===0" class="get-location" (click)="showPopUp()"> Get Location</span>
     </div>    
     <div class="left-end d-flex">
     <div class="search me-3">
         <mat-icon>search</mat-icon>
     </div>
-    <div class="cart me-3 pe-auto">
+    <div class="cart me-3">
     <mat-icon (click)="navigateToCart()">shopping_cart</mat-icon>
     </div>
-    <div *ngIf="isLoggedIn" class="account">
+    <div *ngIf="isLoggedIn" class="account pe-auto">
         <mat-icon>account_circle</mat-icon>
     </div>
     <div *ngIf="!isLoggedIn" (click)="login()" class="account">

@@ -5,3 +5,7 @@
 .header-container{
     border-bottom: 0.1px solid #ccc;
 }
+
+.account, .cart, .search, .get-location{
+    cursor: pointer;
+}
