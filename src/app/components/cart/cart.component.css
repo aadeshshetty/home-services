@@ -1,0 +1,9 @@
+.cart-container{
+    position: relative;
+}
+
+.cart-bottom{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}

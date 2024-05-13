@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit, OnDestroy{
   cartList: any[] = [];
+  total: number = 0;
   private _destroy$ : Subject<any> = new Subject();
   
   constructor(private cartService: CartService){}
@@ -16,6 +17,9 @@ export class CartComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.cartService.cartList.pipe(takeUntil(this._destroy$)).subscribe((data)=>{
       this.cartList = data
+      data.forEach((item)=>{
+        this.total += item.cost
+      })
     })
   }
   

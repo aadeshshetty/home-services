@@ -26,4 +26,8 @@ export class ApiService {
   login(email:string,password:string){
     return this.http.post(`${this.url}/auth/login`,{email:email,password:password})
   }
+
+  getUserId(token:string){
+    return this.http.post(`${this.url}/auth/get-user`,{token:token})
+  }
 }

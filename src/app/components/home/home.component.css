@@ -11,6 +11,10 @@
     font-size: smaller !important;
 }
 
+.top-category{
+    cursor: pointer;
+}
+
 .top-category .svg{
     background-color: #f3f0ffcc;
 }
@@ -25,6 +29,10 @@
 
 .card{
     height: 100%;
+}
+
+.card-footer{
+    height: 4rem;
 }
 
 .card-slider{
@@ -43,4 +51,8 @@
 }
 .card .svg{
     max-height: 2rem;
+}
+
+.service-name{
+    height: 4rem;
 }

@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
 import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   pincode= "";
   isLoggedIn = false;
   private destroy$ = new Subject<any>();
-  constructor(private router: Router, private locationService: LocationService, private userServcie:UserService){}
+  constructor(private router: Router, private locationService: LocationService, private userServcie:UserService, private apiService: ApiService){}
 
   ngOnInit(): void {
     this.locationService.getCity().pipe(takeUntil(this.destroy$)).subscribe((city)=>this.city = city);
@@ -23,7 +24,19 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
 
   navigateToCart(){
-    this.router.navigate(['/cart'])
+    this.userServcie.getUserId().subscribe((id)=>{
+      if(!id){
+        const token = sessionStorage.getItem('token')
+        if(!token)
+          this.router.navigate(['login'])
+        else
+          this.apiService.getUserId(token).subscribe((data:any)=>{
+        this.userServcie.setUserId(data?.data?.userId)
+        })
+      }else{
+        this.router.navigate(['cart'])
+      }
+    })
   }
   login(){
     this.router.navigate(['login'])
