@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Subject, takeUntil } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
@@ -9,65 +11,43 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit, OnDestroy{
 
-  categories: any[] = [
-    {
-      name: 'Carpentry'
-    },
-    {
-      name: 'Plumbing'
-    },
-    {
-      name: 'Cleaning'
-    },
-    {
-      name: 'Applaince Repair'
-    },
-    {
-      name: 'Painting'
-    }
-  ];
+  private destroy$ : Subject<any> = new Subject<any>();
+  categories: any[] = [];
 
   topCategories : any[] =[]
 
-  servicePackages : any[] = [
-    {
-      serviceName: 'Home cleaning package',
-      workers: 2,
-      cost: 2000,
-      rating: 4
-    },
-    {
-      serviceName: 'Applaince service package',
-      workers: 2,
-      cost: 2000,
-      rating: 4
-    },
-    {
-      serviceName: 'Pest control package',
-      workers: 2,
-      cost: 2000,
-      rating: 4
-    },
-    {
-      serviceName: 'Home sanitizing package',
-      workers: 2,
-      cost: 2000,
-      rating: 4
-    },
-    {
-      serviceName: 'Outdoor cleaning package',
-      workers: 2,
-      cost: 2000,
-      rating: 4
-    },
-  ]
+  servicePackages : any[] = []
+  
+  topServicePackages : any[] = []
 
-  constructor(private cartService: CartService, private router: Router, private userService: UserService, private apiService: ApiService){}
+  constructor(private cartService: CartService, private router: Router, private userService: UserService, private apiService: ApiService, private toaster: ToastrService){}
 
   ngOnInit(): void {
-    this.topCategories = this.categories.slice(0,4);
+    this.cartService.getCartItems();
+    this.apiService.getCategories().pipe(takeUntil(this.destroy$)).subscribe({
+      next:(data:any)=>{
+      if(data?.type && data?.type==='success'){
+        this.categories = data?.data?.categories
+        this.topCategories = this.categories.slice(0,Math.min(4,this.categories.length))
+      }
+    },
+    error:(error:any)=>{
+      this.toaster.error(error?.error?.message,'Login',{timeOut:3000})
+    }
+  })
+    this.apiService.getServices().pipe(takeUntil(this.destroy$)).subscribe({
+      next:(data:any)=>{
+      if(data?.type && data?.type==='success'){
+        this.servicePackages = data?.data?.services
+        this.topServicePackages = this.servicePackages.slice(0,Math.min(8,this.servicePackages.length))
+      }
+    },
+    error:(error:any)=>{
+      this.toaster.error(error?.error?.message,'Login',{timeOut:3000})
+    }
+  })
   }
   
   addToCart(service:any){
@@ -95,5 +75,9 @@ export class HomeComponent implements OnInit{
 
   navigateToServices(service:string){
     this.router.navigateByUrl(`/services/${service}`)
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next(null);
   }
 }

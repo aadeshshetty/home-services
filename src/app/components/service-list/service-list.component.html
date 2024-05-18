@@ -1,54 +1,24 @@
 <div class="services-container">
-<h3>{{title}} Servcies</h3>
-<div class="card service">
+<h3>{{title}}</h3>
+<div *ngFor="let service of serviceList" class="card service">
     <img
-    src="https://source.unsplash.com/random"
+    [src]="service.Image"
     class="d-block w-100 img-fluid card-img-top"
     alt="..."
   />
     <div class="card-body">
       <h5 class="card-title mb-3">
-        Home cleaning Servcie
+        {{service.servicename}}
       </h5>
-      <h6 class="card-subtitle mb-2">&#8377; 2000/-</h6>
-      <p class="card-text"> Description</p>
+      <div class="card-text d-flex justify-content-between align-items-center ">
+        <h6 class="card-subtitle mb-2">&#8377; {{service.Price}}</h6>
+        <p class="d-flex align-items-center">Workers Required: {{service.Workers}}<mat-icon class="ms-2">people</mat-icon></p>
+      </div>
+      <p class="d-flex"><mat-icon class="me-2">star</mat-icon>{{service.Ratings}}</p>
     </div>
-    <div class="card-footer">
-      <a (click)="addToCart('service')">Add to cart</a>
-    </div>
-  </div>
-<div class="card service">
-    <img
-    src="https://source.unsplash.com/random"
-    class="d-block w-100 img-fluid card-img-top"
-    alt="..."
-  />
-    <div class="card-body">
-      <h5 class="card-title mb-3">
-        Bathroom cleaning Service
-      </h5>
-      <h6 class="card-subtitle mb-2">&#8377; 2000/-</h6>
-      <p class="card-text"> Description</p>
-    </div>
-    <div class="card-footer">
-      <a (click)="addToCart('service')">Add to cart</a>
-    </div>
-  </div>
-<div class="card service">
-    <img
-    src="https://source.unsplash.com/random"
-    class="d-block w-100 img-fluid card-img-top"
-    alt="..."
-  />
-    <div class="card-body">
-      <h5 class="card-title mb-3">
-        Pest Control Service
-      </h5>
-      <h6 class="card-subtitle mb-2">&#8377; 2000/-</h6>
-      <p class="card-text"> Description</p>
-    </div>
-    <div class="card-footer">
-      <a (click)="addToCart('service')">Add to cart</a>
+    <div class="card-footer d-flex justify-content-center">
+      <span *ngIf="!isInCart(service.servicename)" (click)="addToCart(service)">Add to cart</span>
+      <span *ngIf="isInCart(service.servicename)" (click)="removeFromCart(service)">Remove from cart</span>
     </div>
   </div>
 </div>

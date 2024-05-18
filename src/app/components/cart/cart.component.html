@@ -4,15 +4,18 @@
     <div class="cart-item" *ngFor="let item of cartList">
         <div class="card item mb-2">
             <div class="card-header d-flex justify-content-between">
-                <span><strong>{{item.serviceName}}</strong></span>
+                <span><strong>{{item.servicename}}</strong></span>
             </div>
             <div class="card-body">
                 <div class="cost">
-                    &#8377; {{item.cost}} /-
+                    &#8377; {{item.Price}} /-
                 </div>
                 <div class="workers">
-                   No. of workers : {{item.workers}}
+                   No. of workers : {{item.Workers}}
                 </div>
+            </div>
+            <div (click)="removeFromCart(item)" class="card-footer d-flex justify-content-center">
+                    Remove From Cart
             </div>
         </div>
     </div>

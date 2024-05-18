@@ -30,4 +30,31 @@ export class ApiService {
   getUserId(token:string){
     return this.http.post(`${this.url}/auth/get-user`,{token:token})
   }
+
+  getCategories(){
+    return this.http.get(`${this.url}/auth/get-categories`)
+  }
+
+  getServices(){
+    return this.http.get(`${this.url}/auth/get-services`)
+  }
+
+  getCategoryServices(name:string){
+    return this.http.post(`${this.url}/auth/get-services`,{categoryName:name})
+  }
+
+  addToCart(service:any){
+    const token = sessionStorage.getItem("token")
+    return this.http.post(`${this.url}/auth/add-to-cart`,{token:token,servicename:service.servicename,Workers:service.Workers,Price:service.Price})
+  }
+
+  getCartItems(){
+    const token = sessionStorage.getItem("token")
+    return this.http.post(`${this.url}/auth/get-cart`,{token:token})
+  }
+
+  removeFromCart(service:any){
+    const token = sessionStorage.getItem("token")
+    return this.http.post(`${this.url}/auth/remove-from-cart`,{token:token,servicename:service.servicename})
+  }
 }

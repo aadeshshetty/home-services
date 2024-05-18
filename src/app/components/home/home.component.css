@@ -32,7 +32,7 @@
 }
 
 .card-footer{
-    height: 4rem;
+    height: 2.5rem;
 }
 
 .card-slider{
@@ -45,7 +45,7 @@
 }
 
 .card-slider .card{
-    min-width: 8rem;
+    min-width: 10rem;
     margin-right: 2rem;
     height: inherit;
 }
@@ -54,5 +54,9 @@
 }
 
 .service-name{
-    height: 4rem;
+    height: 2.5rem;
+}
+
+.serviceImg{
+    height: 8rem;
 }
