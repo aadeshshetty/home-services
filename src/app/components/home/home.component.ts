@@ -25,7 +25,10 @@ export class HomeComponent implements OnInit, OnDestroy{
   constructor(private cartService: CartService, private router: Router, private userService: UserService, private apiService: ApiService, private toaster: ToastrService){}
 
   ngOnInit(): void {
+    const token = sessionStorage.getItem('token')
+    if(token){
     this.cartService.getCartItems();
+    }
     this.apiService.getCategories().pipe(takeUntil(this.destroy$)).subscribe({
       next:(data:any)=>{
       if(data?.type && data?.type==='success'){

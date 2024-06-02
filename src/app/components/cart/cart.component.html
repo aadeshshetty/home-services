@@ -21,6 +21,6 @@
     </div>
 <div class="cart-bottom">
     <h2 class="d-flex justify-content-end">Total : &#8377; {{total}} /-</h2>
-    <button class="btn btn-dark p-2 w-100" [ngClass]="cartList.length===0?'disabled':''">Book services</button>
+    <button class="btn btn-dark p-2 w-100" (click)="pay(total)" [ngClass]="cartList.length===0?'disabled':''">Book services</button>
 </div>
 </div>

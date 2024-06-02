@@ -60,6 +60,11 @@ export class CartService {
     return this.cartList.value.some(item => item.servicename === service)
   }
 
+  emptyCart(){
+    this.cartList.value.map((service:any)=>this.apiService.removeFromCart(service).pipe(takeUntil(this.destroy$)).subscribe())
+    this.cartList.next([]);
+  }
+
   ngOnDestroy(){
     this.destroy$.next(null);
     }

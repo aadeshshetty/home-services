@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,12 @@ import { ApiService } from './api.service';
 export class PaymentService {
 
   constructor(private apiService: ApiService) { }
-  createOrder(amount: number) {
-    return this.apiService.createOrder(amount)
+  createOrder(amount: number, cartList:any) {
+    const items = cartList.map((item:any)=>item.servicename)
+    return this.apiService.createOrder(amount, items)
   }
 
   verifyPayment(details: any) {
-    return this.apiService.verifyPayment(details)
+    return lastValueFrom(this.apiService.verifyPayment(details))
   }
 }
